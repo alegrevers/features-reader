@@ -73,9 +73,10 @@ export async function POST(req) {
 
 FORMATO ESPERADO:
 1. Agrupe os PRs por data (do mais recente para o mais antigo)
-2. Para cada PR, descreva brevemente e de forma técnica o que foi implementado/corrigido
+2. Para cada PR, descreva claramente e de forma técnica o que foi implementado/corrigido
 3. No final, faça um resumo geral destacando:
    - Principais entregas
+   - Impacto no projeto
 
 PRs:
 
