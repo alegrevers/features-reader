@@ -1,37 +1,71 @@
-# Bitbucket Summary
+# 📊 Bitbucket Summary
 
-App simples para resumir suas entregas do Bitbucket usando IA.
+App simples para gerar resumo de suas entregas do Bitbucket com IA.
 
-## Setup
+**✅ Funciona mesmo se você loga com Google no Bitbucket!**
 
-1. Clone o repo
-2. `npm install`
-3. Crie `.env.local` com:
-   ```
-   ANTHROPIC_API_KEY=sua_chave_aqui
-   ```
-4. `npm run dev`
+---
 
-## Bitbucket App Password
+## 🚀 Setup Rápido
 
-1. Acesse: https://bitbucket.org/account/settings/app-passwords/
-2. Crie um novo App Password com permissões:
-   - Repositories: Read
-   - Pull requests: Read
-3. Use este password no app
+```bash
+npm install
+npm run dev
+```
 
-## Deploy Vercel
+Acesse: **http://localhost:3000**
 
-1. Push para GitHub
-2. Importe no Vercel
-3. Adicione `ANTHROPIC_API_KEY` nas variáveis de ambiente
-4. Deploy!
+---
 
-## Como usar
+## 🔑 Como criar API Token
 
-- **Workspace**: Nome do workspace do Bitbucket
-- **Username**: Seu username do Bitbucket
-- **App Password**: O password criado acima
-- **Mês**: Escolha o mês para buscar PRs
+**Mesmo que você faça login no Bitbucket com Google, você PODE criar API Tokens:**
 
-O app busca todos os PRs mergeados do autor no mês e gera um resumo com IA.
+1. Acesse: https://id.atlassian.com/manage-profile/security/api-tokens
+2. Clique em **"Criar API Token com Escopo"**
+3. Selecione apenas os escopos de READ e mais nenhum outro.
+4. Clique em **"Create"**
+5. **COPIE O TOKEN GERADO**
+6. Use este token no campo "API Token" do app
+
+### 📝 Seu username
+
+Mesmo logando com Google, você tem um username no Bitbucket. Para descobrir:
+- Acesse: https://bitbucket.org/account/settings/
+- Seu username está no topo da página
+
+---
+
+## 📖 Como usar
+
+1. **Workspace**: Nome do workspace/organização (ex: `minha-empresa`)
+2. **Username**: Seu username do Bitbucket (veja acima como descobrir)
+3. **API Token**: O token criado no passo anterior
+4. **Mês**: Escolha o mês (formato: YYYY-MM, ex: 2025-03)
+5. Clique em **"Gerar Resumo"**
+
+O app vai:
+- Buscar todos os seus PRs mergeados no mês escolhido
+- Analisar os diffs
+- Gerar um resumo executivo com IA
+- Você pode copiar o resultado com um clique
+
+---
+
+## ❓ Troubleshooting
+
+### Erro 401/403
+- Verifique se o API Token está correto
+- Confirme que criou o token com as permissões corretas (Repositories Read + Pull requests Read)
+- Tente gerar um novo token
+
+### Erro 404
+- Verifique se o nome do workspace está correto
+- Confirme que você tem acesso a esse workspace
+
+### Nenhum PR encontrado
+- Confirme que você teve PRs mergeados no mês escolhido
+- Verifique se o username está correto
+- Tente um mês diferente
+
+---
