@@ -53,7 +53,7 @@ export async function POST(req) {
           title: pr.title,
           date: pr.updated_on.split('T')[0],
           description: pr.description || '',
-          diff: diff // Limitar para não estourar token limit
+          diff: diff.slice(0, 5000), // Limitar para não estourar token limit
         });
       } catch (e) {
         console.error('Erro ao buscar diff:', e);
@@ -73,11 +73,9 @@ export async function POST(req) {
 
 FORMATO ESPERADO:
 1. Agrupe os PRs por data (do mais recente para o mais antigo)
-2. Para cada PR, descreva claramente e de forma técnica o que foi implementado/corrigido
+2. Para cada PR, descreva brevemente e de forma técnica o que foi implementado/corrigido
 3. No final, faça um resumo geral destacando:
    - Principais entregas
-   - Total de PRs: ${allPRs.length}
-   - Período: ${month}
 
 PRs:
 
