@@ -143,7 +143,7 @@ export default function Home() {
             style={styles.input}
           />
           <input 
-            placeholder="Repositório (ex: bankeiro_module_beneficio_backend)" 
+            placeholder="Repositório (ex: repo-sitorio)" 
             value={repository} 
             onChange={e => setRepository(e.target.value)} 
             style={styles.input}
