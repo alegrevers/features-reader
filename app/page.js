@@ -117,7 +117,7 @@ export default function Home() {
             style={styles.input}
           />
           <input 
-            placeholder="Username (ex: gabriel-alegrete)" 
+            placeholder="Username (ex: usu-ario)" 
             value={username} 
             onChange={e => setUsername(e.target.value)} 
             style={styles.input}
@@ -204,6 +204,10 @@ export default function Home() {
           </pre>
         </div>
       )}
+      
+      <div style={{ textAlign: 'center', padding: 20, fontSize: 12, color: '#777' }}>
+        Desenvolvido por <a href="https://github.com/alegrevers/features-reader" target="_blank" style={{ color: '#0052cc' }}>alegrevers</a> 🚀
+      </div>
     </div>
   );
 }
