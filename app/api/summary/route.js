@@ -44,7 +44,7 @@ export async function POST(req) {
     console.log('📊 PRs encontrados:', prsData.values?.length || 0);
     
     // Processar cada PR
-    for (const pr of (prsData.values || [])) {
+    for (const pr of (prsData.values || []).slice(0, 20)) {
       try {
         const diffRes = await fetch(pr.links.diff.href, { headers });
         const diff = await diffRes.text();
